@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MMM-CoupleDays Test</title>
+    <link rel="stylesheet" href="../MMM-CoupleDays.css">
+    <style>
+        body {
+            background-color: #000;
+            color: white;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script>
+        // Dummy translation
+        const translations = {
+            en: {
+                days: "days",
+                weeks: "weeks",
+                months: "months",
+                years: "years",
+                total: "total",
+                and: "and",
+                day: "day",
+                week: "week",
+                month: "month",
+                year: "year"
+            }
+        };
+
+        // Fake the translate function
+        function translate(key) {
+            return translations["en"][key] || key;
+        }
+
+        // Patch Module.register for testing
+        const Module = {
+            register: function (name, definition) {
+                Object.assign(definition, {
+                    config: {
+                        name1: "Alice",
+                        name2: "Bob",
+                        date: "2023-01-01",
+                        extraDates: [{ label: "Since another event", date: "2023-01-02" }, { label: "Since third event", date: "2023-01-03" }],
+                        showExtraDates: true,
+                        ExtraDatesViewMode: "loop", //loop - days - weeks - months - years - total
+                        showVectorImg: true,
+                        vectorImgUrl: "./default-asset.png", // Empty to use default
+                        landscapeMode: true,
+                        transitionDuration: 3000,
+                        language: "en",
+                        textColor: "#00ffcc"
+                    },
+                    translate
+                });
+                definition.start();
+                document.getElementById("app").appendChild(definition.getDom());
+            }
+        };
+    </script>
+
+    <script src="../MMM-CoupleDays.js"></script>
+</body>
+
+</html>
