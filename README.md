@@ -3,6 +3,7 @@ MagicMirror² Module that displays the number of days, weeks, months, and years 
 
 ![screenshot](docs/screenshot.jpg)
 
+![screenshot](docs/screenshot2.png) ![screenshot](docs/screenshot3.png)
 ## Dependencies
 
 - instance of MagicMirror²
@@ -29,11 +30,41 @@ MagicMirror² Module that displays the number of days, weeks, months, and years 
   position: "bottom_right",
   config: {
     name1: "Partner 1",
-    name2: "Partner 2", // If name2 is "", it only shows the first name (for birthday trackers for exmaple)
-    date: "2023-01-01", // year-month-day
-    transitionDuration: 5000, // in ms
-    language: "en", // (filename without the .json from the translations folder)
-    textColor: "white" // any valid CSS color value For example, "red," or "#FFA500" (hex color)
+    name2: "Partner 2", 
+    // If name2 is "", it only shows the first name (for birthday trackers for example)
+    
+    date: "2023-01-01",
+    // year-month-day
+    
+    transitionDuration: 5000,
+    // in ms
+    
+    language: "en", 
+    // (filename without the .json from the translations folder)
+    
+    textColor: "white", 
+    // any valid CSS color value For example, "red," or "#FFA500" (hex color),
+    
+    extraDates: [
+        {label: "Since second event", date: "2023-01-02"}, 
+        {label: "Since third event", date: "2023-01-03"}
+    ], 
+    // add list of additional dates and labels to be shown
+    
+    showExtraDates: false, 
+    // extraDates are shown when this is true
+    
+    ExtraDatesViewMode: "loop", 
+    // allowed values are one of these options : -> "loop" - "days" - "weeks" - "months" - "years" - "total"
+    
+    vectorImgUrl: "", 
+        // add your image in assets and pass the relative url example /modules/MMM-CoupleDays/asset/image.png or pass vector url to be shown; if null or empty default image will be shown
+    
+    showVectorImg: false, 
+        // vector image will only be shown if this is true
+    
+    landscapeMode: false, 
+        // if true days will be rendered side by side to the vector image
   }
 },
 ```
@@ -62,3 +93,5 @@ Credits:
 
 - `npm run lint:check` - Run linting and formatter checks.
 - `npm run lint:fix` - Fix linting and formatter issues.
+
+* To test changes locally comment the this.updateDom(); call on the MMM-CoupleDays.js file and open test/test.html on your browser after finish testing uncomment it back
