@@ -5,6 +5,43 @@
   animation-timing-function: ease-in-out;
 }
 
+.couple-days-image {
+  text-align: center;
+  margin: 10px;
+}
+
+.couple-days-wrapper.flex {
+  display: flex;
+  align-items: center;
+}
+
+.couple-image {
+  max-width: 250px;
+  max-height: 250px;
+  object-fit: contain;
+}
+
+.couple-days-extra-content {
+  font-weight: thin;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  animation-name: fade;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+}
+
+.extra-content-main {
+  padding: 8px;
+}
+
+.extra-label {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  margin-top: 4px;
+  display: block;
+}
+
+
 @keyframes fade {
   0% {
     opacity: 1;
